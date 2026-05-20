@@ -13,11 +13,17 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "UPDATE_LAST_LOGIN": True,
 }
 
 SPECTACULAR_SETTINGS = {
-    "TITLE": "",
-    "DESCRIPTION": "",
+    "TITLE": "Backend API",
+    "DESCRIPTION": "REST API — authentication with rotating JWT tokens.",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
+    "TAGS": [
+        {"name": "Authentication", "description": "JWT token management endpoints"},
+    ],
 }
